@@ -1,0 +1,27 @@
+g++ -Wall -Wextra -g -I. -O0 source/standard_array_introduction.cpp -o bin/standard_array_introduction
+source/standard_array_introduction.cpp: In function ‘int main()’:
+source/standard_array_introduction.cpp:15:20: error: no matching function for call to ‘print_array(std::array<int, 5>&)’
+   15 |         print_array(data);
+      |         ~~~~~~~~~~~^~~~~~
+source/standard_array_introduction.cpp:9:6: note: candidate: ‘template<long unsigned int N> void print_array(const std::array<long unsigned int, N>&)’
+    9 | void print_array(const array<size_t, N>& data);
+      |      ^~~~~~~~~~~
+source/standard_array_introduction.cpp:9:6: note:   template argument deduction/substitution failed:
+source/standard_array_introduction.cpp:15:20: note:   mismatched types ‘long unsigned int’ and ‘int’
+   15 |         print_array(data);
+      |         ~~~~~~~~~~~^~~~~~
+source/standard_array_introduction.cpp: At global scope:
+source/standard_array_introduction.cpp:18:38: error: ‘N’ was not declared in this scope
+   18 | void print_array(const array<size_t, N>& data)
+      |                                      ^
+source/standard_array_introduction.cpp:18:39: error: template argument 2 is invalid
+   18 | void print_array(const array<size_t, N>& data)
+      |                                       ^
+source/standard_array_introduction.cpp: In function ‘void print_array(const int&)’:
+source/standard_array_introduction.cpp:20:37: error: request for member ‘size’ in ‘data’, which is of non-class type ‘const int’
+   20 |         for (size_t i = 0; i < data.size(); ++i)
+      |                                     ^~~~
+source/standard_array_introduction.cpp:22:29: error: invalid types ‘const int[size_t {aka long unsigned int}]’ for array subscript
+   22 |                 cout << data[i] << endl;
+      |                             ^
+make: *** [Makefile:15: standard_array_introduction] Error 1
